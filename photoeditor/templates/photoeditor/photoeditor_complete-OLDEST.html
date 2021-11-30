@@ -1,0 +1,129 @@
+{% extends 'photoeditor/base.html' %}
+
+{% block content %}
+
+
+
+
+
+    <div class="row">
+
+        {% if existing_photo %}
+            <div class="col-md-6 p-3 mt-5" style="background-color:rgb(255, 255, 255); color:black; font-size:22px; text-align:center;">
+                
+                <a style="font-size:22px;" href="#">
+                    <img style="width: 100%;" src="{{ existing_photo.photo.url }}">
+                </a>
+
+                <a style="font-size: 20px; text-decoration:none; color:#000000;" href="{{ existing_photo.photo.url }}" download>
+                    <div class="mt-2 py-1" style="background-color:#0fe7b8;">Download This Image</div>
+                </a>
+
+            </div>
+        {% endif %}
+
+
+        <div class="col-md-6 p-3 mt-5" style="background-color:rgb(255, 247, 238); color:rgb(0, 0, 0); font-size:24px;">
+
+            <div style="background-color: rgb(255, 255, 255);" class="p-3">
+                <h1 style="text-shadow: 1px 1px 1px rgb(255, 255, 255); font-family: 'Lobster Two', cursive; font-weight:bold;">Photo Editor</h1>
+
+                    <div class="my-3 pb-3" style="border-bottom:2px solid #858383;">
+                        Make changes to your photo using the options below and clicking the Save Changes button:
+                    </div>
+
+                    <span class="pe-2">Brightness</span> 
+                    <a class="ms-3" style="font-weight:bold; font-size:28px; color:#000000;"  href="{% url 'decrease_brightness' %}"><i style="color:#858383;" class="bi bi-caret-left-square-fill"></i></a>
+                    <a class="ms-1" style="font-weight:bold; font-size:28px; color:#000000;"   href="{% url 'increase_brightness' %}"><i style="color:#858383;" class="bi bi-caret-right-square-fill"></i></a>
+
+                    <div class="my-2"></div>
+
+                    <span class="pe-2">Contrast</span> 
+                    <a class="ms-3" style="font-weight:bold; font-size:28px; color:#000000;"  href="{% url 'decrease_contrast' %}"><i style="color:#858383;" class="bi bi-caret-left-square-fill"></i></a>
+                    <a class="ms-1" style="font-weight:bold; font-size:28px; color:#000000;"   href="{% url 'increase_contrast' %}"><i style="color:#858383;" class="bi bi-caret-right-square-fill"></i></a>
+
+                    <div class="my-2"></div>
+
+                    <span class="pe-2">Sharpness</span> 
+                    <a class="ms-3" style="font-weight:bold; font-size:28px; color:#000000;"  href="{% url 'decrease_sharpness' %}"><i style="color:#858383;" class="bi bi-caret-left-square-fill"></i></a>
+                    <a class="ms-1" style="font-weight:bold; font-size:28px; color:#000000;"   href="{% url 'increase_sharpness' %}"><i style="color:#858383;" class="bi bi-caret-right-square-fill"></i></a>
+
+                    <div class="my-2"></div>
+
+                    <span class="pe-2">Smoothness</span> 
+                    <a class="ms-3" style="font-weight:bold; font-size:28px; color:#000000;"  href="{% url 'decrease_brightness' %}"><i style="color:#858383;" class="bi bi-caret-left-square-fill"></i></a>
+                    <a class="ms-1" style="font-weight:bold; font-size:28px; color:#000000;"   href="{% url 'increase_brightness' %}"><i style="color:#858383;" class="bi bi-caret-right-square-fill"></i></a>
+
+                    <div class="my-2"></div>
+
+                    <span class="pe-2">Grayscale</span> 
+                    <a class="ms-3" style="font-weight:bold; font-size:28px; color:#000000;"  href="{% url 'decrease_brightness' %}"><i style="color:#858383;" class="bi bi-caret-left-square-fill"></i></a>
+                    <a class="ms-1" style="font-weight:bold; font-size:28px; color:#000000;"   href="{% url 'increase_brightness' %}"><i style="color:#858383;" class="bi bi-caret-right-square-fill"></i></a>
+
+                    <div class="my-2"></div>
+
+                    <span class="pe-2">Flip Left/Right</span> 
+                    <a class="ms-3" style="font-weight:bold;"  href="{% url 'decrease_brightness' %}"><i style="color:#858383;" class="bi bi-arrow-left-right"></i></a>
+                    
+                    <div class="my-2"></div>
+
+                    <span class="pe-2">Flip Top/Bottom</span> 
+                    <a class="ms-3" style="font-weight:bold;"  href="{% url 'decrease_brightness' %}"><i style="color:#858383;" class="bi bi-arrow-down-up"></i></a>
+
+                    <br><br>
+
+                    <a style="font-size:19px;" class="btn btn-danger" href="{% url 'photoeditor_reset' %}">Reset</a>
+
+                    <a style="font-size:19px;" class="btn btn-success" href="{% url 'photoeditor' %}">Edit Another Photo</a>
+
+
+
+                    <!-- form -->
+                    <!-- <form class="form-check form-switch" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        Brightness {{ form.brightness }}
+                        <br>
+                        Contrast {{ form.contrast }}
+                        <br>
+                        Sharpness {{ form.sharpness }}
+                        <br>
+                        Flip Left/Right {{ form.flip_left_right }}
+                        <br>
+                        Flip Top/Bottom {{ form.flip_top_bottom }}
+                        <br>
+                        Smoothness {{ form.smoothness }}
+                        <br>
+                        Grayscale {{ form.grayscale}}
+                        <br>
+                        <div class="mt-4">
+                            <button style="font-size:19px;" class="btn btn-primary" type="submit">Save Changes</button>
+                            
+                            <a style="font-size:19px;" class="btn btn-danger" href="{% url 'photoeditor_reset' %}">Reset</a>
+
+                            <a style="font-size:19px;" class="btn btn-success" href="{% url 'photoeditor' %}">Edit Another Photo</a>
+                        </div>
+                    </form> -->
+
+
+                </div>
+        </div>
+
+
+        <div class="col-md-12 p-3" style="font-size:18px; background-color:rgb(53, 53, 53);; color:#ffffff; font-family: 'Pacifico', cursive; text-align:center;">
+            Designed and Developed By <span style="color:#f3e847; font-family: 'Carrois Gothic SC', sans-serif; font-size:20px;"><b>Gbenga Ogunkuade</b></span>
+        </div>
+
+
+        <div class="col-md-12 p-3" style="background-color:rgb(255, 255, 255);; color:#000000; text-align:center;">
+            
+
+                <!-- <a style="font-weight:bold; font-size:30px;"  href="{% url 'decrease_brightness' %}"><i class="bi bi-dash-lg me-4"></i></a>
+                Brightness
+                <a style="font-weight:bold; font-size:30px;"  href="{% url 'increase_brightness' %}"><i class="bi bi-plus-lg ms-4"></i></a> -->
+        </div>
+
+
+    </div>
+
+
+{% endblock %}

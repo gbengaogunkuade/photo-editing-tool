@@ -1,0 +1,1 @@
+web: gunicorn myEditor.wsgi --log-file -

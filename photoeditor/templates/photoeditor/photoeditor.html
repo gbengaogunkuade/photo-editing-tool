@@ -1,0 +1,42 @@
+{% extends 'photoeditor/base.html' %}
+
+{% block content %}
+
+    <br><br>
+    
+    <div class="row">
+
+        <div class="col-md-12 p-3 mt-5" style="font-size:18px; background-color:#0fe7b8; color:#ffffff; text-align:center;">
+            <h1 style="color:#000000; font-family: 'Carrois Gothic SC', sans-serif; font-weight:bold;">Online Photo Editor</h1>
+        </div>
+
+  
+        <div class="col-md-12 p-4" style="color:#222222; text-align:center; background-color:#ffffff;">
+
+            <div style="background-color: rgb(255, 255, 255);" class="px-3">
+                <!-- form -->
+                <form class="form-group" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <br>
+                    {{ form.photo }}
+
+                    <div class="mt-4">
+                        <button style="font-size:20px;" class="btn btn-danger me-3" type="reset">Cancel</button>
+                        <button style="font-size:20px;" class="btn btn-primary" type="submit">Continue</button>
+                    </div>
+                </form>
+                <br>
+            </div>
+
+        </div>
+
+
+        <div class="col-md-12 p-3 mt-1" style="font-size:18px; background-color:rgb(53, 53, 53);; color:#ffffff; font-family: 'Pacifico', cursive; text-align:center;">
+            Designed and Developed By <span style="color:#f3e847; font-family: 'Carrois Gothic SC', sans-serif; font-size:20px;"><b>Gbenga Ogunkuade</b></span>
+        </div>
+
+    </div>
+
+
+
+{% endblock %}
